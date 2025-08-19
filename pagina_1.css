@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #006400; /* verde da mesa */
+    background-image: url('kartas1.png');
+    background-size: cover;       /* cobre toda a tela */
+    background-position: center;  /* centraliza a imagem */
+    background-repeat: no-repeat; /* evita repetição */
+  }
+  
+  .container {
+    text-align: center;
+    z-index: 1; /* garante que o texto fique sobre a imagem */
+}
+  
+  .titulo {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+  
+  .imagem {
+    width: 0px;
+    position: absolute;
+    top: 0%;  /* distância do topo */
+    left: 0%; /* distância da esquerda */
+}
+  
+  
+  .botao {
+    display: block;
+    width: 200px;
+    margin: 10px auto;
+    padding: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #411565;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+  .botao:hover {
+    background-color: #000000;
+}
+  
+
+
