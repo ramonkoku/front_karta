@@ -12,7 +12,7 @@ body {
     background-size: cover;       /* cobre toda a tela */
     background-position: center;  /* centraliza a imagem */
     background-repeat: no-repeat; /* evita repetição */
-  }
+}
   
   .container {
     text-align: center;
