@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #006400; /* verde da mesa */
-    background-image: url('kartas1.png');
+    background-image: url('kartas2.png');
     background-size: cover;       /* cobre toda a tela */
     background-position: center;  /* centraliza a imagem */
     background-repeat: no-repeat; /* evita repetição */

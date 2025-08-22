@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+
+  /* Fundo da mesa com imagem */
+  background-color: #006400;
+  background-image: url('kartas2.png'); 
+  background-size: cover;       /* cobre toda a tela */
+  background-position: center;  /* centraliza a imagem */
+  background-repeat: no-repeat; /* não repete */
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.6); /* fundo transparente para destacar o formulário */
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  width: 300px;
+}
+
+.titulo {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.botao {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 10px;
+}
+
+.botao:hover {
+  background-color: #228B22;
+}
+
+.link {
+  margin-top: 15px;
+}
+
+.link a {
+  color: #00FF7F;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
