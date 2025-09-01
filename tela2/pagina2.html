@@ -16,5 +16,30 @@
     </form>
     <p class="link">Não tem conta? <a href="#">Criar conta</a></p>
   </div>
+  <script>
+    const form = document.querySelector('.formulario');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const [emailEl, passEl] = form.querySelectorAll('input');
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailEl.value, password: passEl.value })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          localStorage.setItem('token', data.token);
+          alert('Login realizado com sucesso!');
+          location.href = 'pagina3.html'; // redireciona para a próxima tela
+        } else {
+          alert(data.error || 'Erro no login');
+        }
+      } catch (err) {
+        alert('Falha ao conectar com o servidor');
+      }
+    });
+  </script>
+  
 </body>
 </html>
