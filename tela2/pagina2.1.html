@@ -13,6 +13,35 @@
       <input type="email" placeholder="Digite seu e-mail" required>
       <input type="password" placeholder="Digite sua senha" required>
       <button type="submit" class="botao">Entrar</button>
+    </form>
+    <!-- Link para voltar ao login -->
+    <div class="login-link">
+      <a href="pagina2.html" class="btn-login">Logar</a>
+    </div>
   </div>
+
+  <script>
+    const form = document.querySelector('.formulario');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const [emailEl, passEl] = form.querySelectorAll('input');
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: emailEl.value, password: passEl.value })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          alert('Cadastro realizado com sucesso! Agora faça login.');
+          location.href = 'pagina2.html';
+        } else {
+          alert(data.error || 'Erro no cadastro');
+        }
+      } catch (err) {
+        alert('Falha ao conectar com o servidor');
+      }
+    });
+  </script>
 </body>
 </html>

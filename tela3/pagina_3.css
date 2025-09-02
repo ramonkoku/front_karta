@@ -60,3 +60,46 @@ body {
 .botao-jogo:hover {
   transform: scale(1.05);
 }
+
+.container {
+  margin-top: 30px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.grid-jogos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 30px;
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.game-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.game-button img {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.game-button p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+}
+
+.game-button:hover {
+  transform: scale(1.1);
+}

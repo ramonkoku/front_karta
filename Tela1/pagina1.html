@@ -10,8 +10,13 @@
   <div class="container">
     <img src="kartas1.png" alt="Carta" class="imagem">
     <h1 class="titulo">Mestres das Kartas</h1>
-    <button class="botao">Iniciar</button>
-    <button class="botao">Ajuda</button>
+    <button class="botao" id="btnIniciar">Iniciar</button>
   </div>
+
+  <script>
+    document.getElementById('btnIniciar').addEventListener('click', () => {
+      window.location.href = "../tela2/pagina2.html"; 
+    });
+  </script>
 </body>
 </html>
