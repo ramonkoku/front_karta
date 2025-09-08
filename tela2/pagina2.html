@@ -35,7 +35,7 @@
         if (res.ok) {
           localStorage.setItem('token', data.token);
           alert('Login realizado com sucesso!');
-          location.href = 'pagina3.html'; // redireciona para a próxima tela
+          location.href = '../tela3/pagina3.html'; // redireciona para a próxima tela
         } else {
           alert(data.error || 'Erro no login');
         }

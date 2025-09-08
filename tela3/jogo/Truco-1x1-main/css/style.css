@@ -5,34 +5,39 @@
 }
 
 body{
-    background-color:rgb(189, 188, 196);
+    background-color: rgb(189, 188, 196);
     width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* joga pro fundo */
     justify-content: center;
+    padding-bottom: 50px; /* controla a altura da mesa */
 }
+
 
 .placar{
     position: absolute;
     top: 0;
     margin-top: 20px;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 /*Configuração da mesa*/
 .mesa{
     display: flex;
-    background-color: green;
-    height: 80%;
+    overflow: hidden; /* corta o que sair da mesa */
+    background-image: url('imagem/fundo_mesa.jpg'); /* sua imagem */
+    background-size: cover;   /* cobre toda a área */
+    height: 90%;
     width: 80%;
-    border-radius: 15%;
+    border-radius: 50%;
     border: 10px solid saddlebrown;
     padding: 10px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
+
 
 /*Configuracao de maos*/
 .mao{
@@ -50,13 +55,16 @@ body{
     padding: 5px;
     width: 100px;
     height: 150px;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    background-size: cover; /* cobre toda a carta */
+    background-position: center;
     border-radius: 15px;
     border: 2px solid black;
 }
 
+
 .carta:hover{
-    background-color: yellowgreen;
+    background-color: rgb(255, 255, 255);
 }
 
 .fundo-carta{
@@ -64,15 +72,18 @@ body{
     padding: 5px;
     width: 100px;
     height: 150px;
-    background-color: blue;
+    background-image: url('imagem/fundo-verso.png'); /* verso */
+    background-size: cover;
+    background-position: center;
     border-radius: 15px;
     border: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 50px;
-    color: white;
+    color: black;
 }
+
 .nipe{
     width: 20px;
     height: 20px;
@@ -124,17 +135,3 @@ body{
     content: url('imagem/copas.png');
 }
 
-.mesa{
-    display: flex;
-    background-image: url('imagem/fundo.png'); /* sua imagem */
-    background-size: cover;   /* cobre toda a área */
-    background-position: center; /* centraliza */
-    height: 80%;
-    width: 80%;
-    border-radius: 15%;
-    border: 10px solid saddlebrown;
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}

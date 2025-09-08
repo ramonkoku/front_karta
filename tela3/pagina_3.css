@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('kartas3.png'); 
+  background-image: url('imagens/fundo.png'); 
   background-size: cover;
   background-position: center;
   display: flex;
