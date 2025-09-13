@@ -57,28 +57,57 @@ function mostraCartaJogador(div){
     div.style.marginTop = "-20px";
 }
 
-const registraJogada = (div,carta) => {
-    mostraCartaJogador(div);
+// Função para mostrar mensagem animada
+function mostrarMensagem(texto, tipo) {
+    const divMensagem = document.getElementById("mensagem-jogo");
+    divMensagem.textContent = texto;
+
+    if (tipo === 'ganhou') {
+        divMensagem.style.backgroundColor = 'green';
+    } else if (tipo === 'perdeu') {
+        divMensagem.style.backgroundColor = 'red';
+    } else {
+        divMensagem.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    }
+
+    divMensagem.style.display = 'block';
+    divMensagem.style.opacity = 1;
+    divMensagem.style.transform = 'translateX(-50%) translateY(0)';
+
+    setTimeout(() => {
+        divMensagem.style.opacity = 0;
+        divMensagem.style.transform = 'translateX(-50%) translateY(-20px)';
+        setTimeout(() => divMensagem.style.display = 'none', 500);
+    }, 2000);
+}
+
+const registraJogada = (div, carta) => {
+    // Impede clicar de novo
+    div.onclick = null;  
+    div.style.pointerEvents = "none"; 
+    div.style.opacity = "0.5"; // feedback visual
+
+    // Remove a carta do array de cartas em campo
+    cartas_em_campo = cartas_em_campo.filter(c => c !== carta);
+
     let status = carta.compara(carta_maquina);
     console.log(status)
     if(status > 0){
         alert("Venceu esse round!")
         quantidade_vitoria += 1;
-    } else if(status < 0){
-        alert("Perdeu esse round!")
+    } else if (status < 0) {
+        alert("Perdeu esse round!");
         quantidade_derrota += 1;
     } else {
-        alert("Empate!")
+        alert("Empate!");
     }
 
     quantidade_round += 1;
 
-    if(quantidade_derrota == 2 || quantidade_vitoria == 2 || quantidade_round == 3){
-        if(quantidade_vitoria > quantidade_derrota){
+    if (quantidade_derrota == 12 || quantidade_vitoria == 12 || quantidade_round == 3) {
+        if (quantidade_vitoria > quantidade_derrota) {
             pontuacao += 1;
-        }
-
-        if(quantidade_vitoria < quantidade_derrota){
+        } else if (quantidade_vitoria < quantidade_derrota) {
             pontuacao -= 1;
         }
 
