@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Mestres das Kartas</title>
   <link rel="stylesheet" href="pagina_2.css">
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <div class="login-container">
@@ -15,16 +18,19 @@
       <button type="submit" class="botao">Entrar</button>
     </form>
 
-        <!-- Parte de cadastro -->
-    <div class="cadastro-link"> 
+    <!-- Parte de cadastro -->
+    <div class="cadastro-link">
       <a href="pagina2.1.html" class="btn-cadastro">Criar conta</a>
     </div>
   </div>
+
   <script>
     const form = document.querySelector('.formulario');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const [emailEl, passEl] = form.querySelectorAll('input');
+
       try {
         const res = await fetch('http://localhost:3000/api/auth/login', {
           method: 'POST',
@@ -32,18 +38,33 @@
           body: JSON.stringify({ email: emailEl.value, password: passEl.value })
         });
         const data = await res.json();
+
         if (res.ok) {
           localStorage.setItem('token', data.token);
-          alert('Login realizado com sucesso!');
-          location.href = '../tela3/pagina3.html'; // redireciona para a próxima tela
+          Swal.fire({
+            icon: 'success',
+            title: 'Login realizado!',
+            text: 'Você será redirecionado...',
+            timer: 1500,
+            showConfirmButton: false
+          }).then(() => {
+            location.href = '../tela3/pagina3.html';
+          });
         } else {
-          alert(data.error || 'Erro no login');
+          Swal.fire({
+            icon: 'error',
+            title: 'Erro no login',
+            text: data.error || 'E-mail ou senha inválidos'
+          });
         }
       } catch (err) {
-        alert('Falha ao conectar com o servidor');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Falha de conexão',
+          text: 'Não foi possível conectar ao servidor'
+        });
       }
     });
   </script>
-  
 </body>
 </html>
