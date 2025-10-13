@@ -88,9 +88,8 @@ h1 {
 
 .game-button img {
   width: 150px;
-  height: auto;
+  height: max-content;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
 .game-button p {
