@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('imagens/fundo.png'); 
+  background-image: url('imagens/fundo.png');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -12,16 +12,38 @@ body {
   color: white;
 }
 
+.container {
+  margin-top: -60px;
+  /* sobe tudo um pouco na tela */
+  text-align: center;
+  /* centraliza o conteúdo */
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  /* remove margem superior e dá espaço abaixo */
+  font-size: 3.5em;
+  /* letras maiores */
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-family: 'Bebas Neue', sans-serif;
+  text-align: center;
+  /* garante centralização */
+}
+
+
 .game-selection {
   width: 650px;
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
+  /* 2 colunas */
   gap: 20px;
 }
 
 .user-icon {
-  grid-column: span 2; /* ocupa toda a largura do grid */
+  grid-column: span 2;
+  /* ocupa toda a largura do grid */
   margin-bottom: 20px;
 }
 
@@ -49,7 +71,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .botao-jogo span {
@@ -71,7 +93,8 @@ h1 {
 
 .grid-jogos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 colunas */
   gap: 30px;
   justify-items: center;
   max-width: 900px;
@@ -90,6 +113,17 @@ h1 {
   width: 150px;
   height: max-content;
   border-radius: 10px;
+  border: 3px solid #ffffff;
+  /* borda branca */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  /* sombra suave */
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.game-button:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
+  border-color: #000000;
 }
 
 .game-button p {

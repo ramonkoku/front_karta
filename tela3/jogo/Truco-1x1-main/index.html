@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truco Melhorado</title>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Truco</title>
 </head>
+
 <body>
-    <div class="placar">Pontuação:<i id="pontuacao">0</i></div>
-    <div id="mesa" class="mesa">
-        <div id="mao-jogador-1" class="mao mao-superior"></div>
-        <div id="mao-jogador-2" class="mao mao-inferior"></div>
-        <div id="baralho" class="baralho"></div>
+
+    <!-- Área que mostra a manilha -->
+    <div id="manilha-info" class="manilha-info">
+        Manilha: ?
     </div>
-    
+
+    <!-- Pontuações nos cantos -->
+    <div id="pontuacao-jogador" class="pontuacao-jogador">Jogador: 0</div>
+    <div id="pontuacao-maquina" class="pontuacao-maquina">Máquina: 0</div>
+
+    <!-- Mensagem central -->
+    <div id="mensagem-jogo"></div>
+
+    <!-- Mesa de jogo -->
+    <div id="mesa" class="mesa">
+
+        <!-- Baralho e Vira centralizados -->
+        <div class="central-baralho">
+            <div id="baralho" class="baralho"></div>
+            <div id="vira" class="baralho"></div>
+        </div>
+
+        <!-- Mãos -->
+        <div id="mao-maquina" class="mao mao-superior"></div>
+        <div id="mao-jogador" class="mao mao-inferior"></div>
+    </div>
+
+    <!-- Scripts -->
     <script src="./script/Carta.js"></script>
     <script src="./script/Baralho.js"></script>
-    <script src="./script/montaCarta.js"></script>
     <script src="./script/Jogador.js"></script>
+    <script src="./script/montaCarta.js"></script>
     <script src="./script/Truco.js"></script>
 </body>
+
 </html>
