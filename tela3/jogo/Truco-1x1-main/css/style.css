@@ -38,15 +38,16 @@ body {
 /* Mensagem central */
 #mensagem-jogo {
     position: absolute;
-    top: 50%;
+    top: 50px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 20px;
+    transform: translateX(-50%) translateY(-20px);
+    background-color: rgba(0,0,0,0.7);
     color: white;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 20px;
     opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
+    transition: all 0.5s ease;
     z-index: 1000;
 }
 
@@ -67,19 +68,14 @@ body {
     position: relative;
 }
 
+/* Mãos */
 .mao {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-
-.mao-superior {
-    order: 1;
-}
-
-.mao-inferior {
-    order: 3;
-}
+.mao-superior { order: 1; }
+.mao-inferior { order: 3; }
 
 /* Central Baralho e Vira */
 .central-baralho {
@@ -96,19 +92,15 @@ body {
 
 .baralho {
     width: 100px;
-    /* mesmo tamanho da carta */
     height: 150px;
-    /* mesmo tamanho da carta */
-    background: url("imagem/fundo-verso.png") center/cover no-repeat;
+    background: url("imagem/reverse.png") center/cover no-repeat;
     border-radius: 12px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: transform 0.5s ease;
 }
 
-.baralho:hover {
-    transform: translateY(-10px) rotate(-10deg);
-}
+.baralho:hover { transform: translateY(-10px) rotate(-10deg); }
 
 /* Carta */
 .carta {
@@ -121,61 +113,47 @@ body {
     justify-content: space-between;
     padding: 8px;
     background: linear-gradient(to bottom, #fff 0%, #f9f9f9 100%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
-
 .carta:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
 }
 
-.simb-esq-carta {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Estrutura dos cantos da carta */
 .simb-dir-carta {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transform: rotate(180deg);
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 87%;
 }
+
 
 .num-carta {
     font-size: 22px;
     font-weight: bold;
+    margin-right: 3px; /* espaço entre número e naipe */
 }
 
 .nipe {
     font-size: 20px;
-    margin-top: 2px;
 }
 
-.red {
-    color: red;
-}
+.red { color: red; }
+.black { color: black; }
 
-.black {
-    color: black;
-}
-
+/* Fundo da carta */
 .fundo-carta {
     background-color: #eee;
     width: 100px;
     height: 150px;
     border-radius: 12px;
     border: 1px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,106 +161,91 @@ body {
     cursor: default;
 }
 
-.campo-jogo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 20px;
-    z-index: 10;
-}
-
-.campo-jogo .carta {
-    width: 100px;
-    height: 150px;
-    border-radius: 15px;
-    border: 2px solid black;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* Efeito de leque */
-.mao-inferior .carta {
-    transform-origin: bottom center;
-}
-
-.mao-inferior .carta:nth-child(1) {
-    transform: rotate(-15deg);
-}
-
-.mao-inferior .carta:nth-child(2) {
-    transform: rotate(0deg);
-}
-
-.mao-inferior .carta:nth-child(3) {
-    transform: rotate(15deg);
-}
-
-.mao-superior .carta {
-    transform-origin: top center;
-}
-
-.mao-superior .carta:nth-child(1) {
-    transform: rotate(15deg);
-}
-
-.mao-superior .carta:nth-child(2) {
-    transform: rotate(0deg);
-}
-
-.mao-superior .carta:nth-child(3) {
-    transform: rotate(-15deg);
-}
+.mao-inferior .carta:nth-child(1) { transform: rotate(-15deg); }
+.mao-inferior .carta:nth-child(2) { transform: rotate(0deg); }
+.mao-inferior .carta:nth-child(3) { transform: rotate(15deg); }
+.mao-superior .carta:nth-child(1) { transform: rotate(15deg); }
+.mao-superior .carta:nth-child(2) { transform: rotate(0deg); }
+.mao-superior .carta:nth-child(3) { transform: rotate(-15deg); }
 
 /* manilha */
 .manilha-info {
     position: absolute;
     top: 80px;
-    /* um pouco abaixo da pontuação */
     left: 50%;
     transform: translateX(-50%);
     font-size: 24px;
     font-weight: bold;
     color: yellow;
     text-shadow: 1px 1px 3px black;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.5);
     padding: 8px 16px;
     border-radius: 8px;
     z-index: 1000;
 }
 
-/* animação de pontuação*/
-
+/* animação de pontuação */
 @keyframes pontuacaoAnimada {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    25% {
-        transform: scale(1.5);
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    75% {
-        transform: scale(1.5);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+    0%,50%,100% { transform: scale(1); opacity: 1; }
+    25%,75% { transform: scale(1.5); opacity: 0.7; }
 }
+.pontuacao-animada { animation: pontuacaoAnimada 0.6s ease-in-out; }
 
-.pontuacao-animada {
-    animation: pontuacaoAnimada 0.6s ease-in-out;
+/* Botão Pedir Truco */
+@keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+.botao-truco {
+    position: absolute;
+    bottom: 150px;
+    left: 20px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+    transition: 0.3s;
 }
+.botao-truco:hover { background-color: #A0522D; transform: scale(1.15); }
+
+/* Caixa de diálogo de truco */
+.truco-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background-color: #333;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+.truco-dialog.show { transform: translate(-50%, -50%) scale(1); }
+
+.botoes-truco {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.botoes-truco button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #8B4513;
+    color: white;
+    transition: 0.3s;
+}
+.botoes-truco button:hover { background-color: #A0522D; transform: scale(1.1); }
+
+/* Carta com efeito de virar */
+@keyframes virarCarta { 0% { transform: rotateY(90deg); opacity:0; } 50% { transform: rotateY(45deg); opacity:0.5;} 100% { transform: rotateY(0deg); opacity:1; } }
+.fundo-carta, .carta { display: inline-block; margin:5px; perspective:1000px; animation: virarCarta 0.5s ease; }
+.carta.virada { animation: virarCarta 0.5s ease; }
