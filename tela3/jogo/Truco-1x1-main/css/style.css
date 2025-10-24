@@ -126,10 +126,12 @@ body {
 /* Estrutura dos cantos da carta */
 .simb-dir-carta {
     display: flex;
-    flex-direction: column;
+    position: relative;
+    flex-direction: row-reverse;
     align-items: flex-end;
     justify-content: flex-end;
     height: 87%;
+
 }
 
 
